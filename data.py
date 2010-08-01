@@ -6,6 +6,7 @@ from collections import defaultdict
 
 mensa_url = "http://www.studentenwerk-muenchen.de/mensa/speiseplan/speiseplan_422_-de.html"
 price_url = "http://www.studentenwerk-muenchen.de/mensa/unsere_preise/"
+locale.setlocale(locale.LC_ALL,'de_DE')
 
 # returns a list of tupels of the format ("Mealname","Tagesgericht 1","vegetarian")
 def get_meals():
@@ -33,7 +34,7 @@ def get_meals():
 					meal[0].text,			# name
 					meal_price[0].text,		# price # TODO: replace pricename with real prices
 					meal[1].attrib['title']))	# vegetarian
-	return sorted(meals.items(),reverse=True)
+	return sorted(meals.items())
 
 
 
